@@ -1,0 +1,16 @@
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/Users/kame/.rbenv/versions/2.6.3/bin/ruby -I /Users/kame/.rbenv/versions/2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20190922-11596-764n6a.rb extconf.rb
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

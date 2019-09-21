@@ -1,0 +1,15 @@
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/kame/.rbenv/versions/2.6.3/bin/ruby -I /Users/kame/.rbenv/versions/2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20190922-11596-1xxyfc0.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/kame/workspace/Ruby_on_Rails/telegram/vendor/bundle/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20190922-11596-1dvcq83
