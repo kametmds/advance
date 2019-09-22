@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/users', to: 'sessions#create'
+
   resources :feeds do
     collection do
       post :confirm
