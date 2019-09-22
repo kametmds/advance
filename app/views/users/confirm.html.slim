@@ -1,0 +1,17 @@
+h1 確認画面
+= form_with(model: @user, url: users_path, local: true) do |f|
+  = image_tag(@user.image.url) if @user.image && @user.image.url
+  = f.hidden_field :name
+  = f.hidden_field :email
+  = f.hidden_field :image_cache
+  = f.hidden_field :password
+  = f.hidden_field :password_confirmation
+
+  p 名前: #{@user.name}
+  p Email: #{@user.email}
+
+  = f.submit "アカウント作成"
+
+= form_with(model: @user, url: new_user_path, local: true, method: "get") do |f|
+  = f.hidden_field :image_cache
+  = f.submit "戻る", name: "back"

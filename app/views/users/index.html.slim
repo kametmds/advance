@@ -1,19 +1,23 @@
-h1 Listing users
+h1 ユーザー一覧
+.container
+  - @users.order(created_at: :desc).each do |user|
+    .content
+      .content_name
+        |名前：
+        = user.name
+      .content_email
+        |Email：
+        = user.email
+      .content_image
+        |画像：
+        - if user.image.present?
+          = image_tag user.image.url
 
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @users.each do |user|
-      tr
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+      .choice
+        = link_to 'Show', user
+        = link_to 'Edit', edit_user_path(user)
+        = link_to 'Destroy', user, data: { confirm: '本当に削除しますか?' }, method: :delete
 
 br
 
-= link_to 'New User', new_user_path
+= link_to '新規登録', new_user_path

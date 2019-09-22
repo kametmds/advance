@@ -1,6 +1,17 @@
-p#notice = notice
+h1 ユーザー情報
 
+p
+  strong ユーザー名:
+  = @user.name
+p
+  strong Email:
+  = @user.email
+p
+  strong
+    - if @user.image.present?
+      = image_tag @user.image.url
 
-=> link_to 'Edit', edit_user_path(@user)
+=> link_to '編集', edit_user_path(@user)
 '|
-=< link_to 'Back', users_path
+=< link_to '一覧', users_path
+br
