@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   private
 
   #ログインユーザーと編集しようとしているユーザーのidが一致しない場合にアクセスを拒否
-  # def ensure_correct_user
-  #   if @current_user.id != params[:id].to_i
-  #     flash[:notice] = "権限がありません"
-  #     redirect_to new_session_path
-  #   end
-  # end
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to users_path
+    end
+  end
 
   #ログアウト状態の時アクセス拒否
   def authenticate_user
