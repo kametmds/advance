@@ -10,14 +10,23 @@ html
   body
     header
       - if logged_in?
-        = link_to "MyPage", user_path(current_user.id)
-        = link_to "Logout", session_path(current_user.id), method: :delete
+        => link_to "マイページ", user_path(current_user.id)
+        '|
+        =<> link_to "ログアウト", session_path(current_user.id), method: :delete
+        '|
+        =<> link_to '新規投稿', new_feed_path
+        '|
+        =<> link_to '投稿一覧', feeds_path
+        '|
+        =< link_to 'ユーザ一覧', users_path
+
         p.loginstate
           | ログイン中のユーザー：
           = current_user.name
       - else
-        = link_to "Sign up", new_user_path
-        = link_to "Login" , new_session_path
+        => link_to "ユーザ登録", new_user_path
+        '|
+        =< link_to "ログイン" , new_session_path
 
     - flash.each do |key, value|
       = content_tag(:div, value, class: "#{key}")

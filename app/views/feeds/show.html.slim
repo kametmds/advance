@@ -2,7 +2,7 @@ h1 投稿詳細
 
 p
   strong 画像:
-  - if feed.content.present?
+  - if @feed.image.present?
     = image_tag @feed.image.url
 p
   strong 投稿者:
@@ -11,7 +11,9 @@ p
   strong 内容:
   = @feed.content
 
+=> link_to '一覧', feeds_path
 - if @feed.user.id == current_user.id
-  => link_to '編集', edit_feed_path(@feed)
   '|
-=< link_to '削除', feeds_path
+  =>< link_to '編集', edit_feed_path(@feed)
+  '|
+  =< link_to '削除', @feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete

@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #ログインユーザーと編集しようとしている投稿のユーザーidが一致しない場合にアクセスを拒否
+  def forbid_correct_user
+    if current_user.id != @feed.user.id
+      flash[:notice] = "編集権限がありません"
+      redirect_to feeds_path
+    end
+  end
+
   #ログアウト状態の時アクセス拒否
   def authenticate_user
     if current_user == nil

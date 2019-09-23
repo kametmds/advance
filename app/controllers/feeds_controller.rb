@@ -1,8 +1,8 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
-  before_action :ensure_correct_user: [:edit, :update, :destroy]
-
+  before_action :forbid_correct_user, only: [:edit, :update, :destroy]
+  
   def index
     @feeds = Feed.all
   end
@@ -22,7 +22,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
     if @feed.save
       redirect_to @feed, notice: '投稿しました'
     else
@@ -40,12 +40,12 @@ class FeedsController < ApplicationController
 
   def destroy
     @feed.destroy
-      redirect_to feeds_url, notice: '削除しました'
-    end
+    redirect_to feeds_url, notice: '削除しました'
   end
 
   def confirm
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
+    render :new if @feed.invalid?
   end
 
   private
