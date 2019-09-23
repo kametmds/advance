@@ -1,0 +1,18 @@
+h1 投稿一覧
+
+- @feeds.order(created_at: :desc).each do |feed|
+  .content
+    .content_name = feed.user.name
+    .content_sentence = feed.content
+    .contnt_image
+      - if feed.image.present?
+        = image_tag feed.image.url
+    .choice
+      = link_to '詳細', feed
+      - if feed.user.id == current_user.id
+        = link_to '編集', edit_feed_path(feed)
+        = link_to '削除', feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete
+
+br
+
+= link_to '新規投稿', new_feed_path

@@ -1,0 +1,19 @@
+= form_with(model: feed, local: true, url:feed_new_or_edit) do |f|
+  - if @feed.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@feed.errors.count, "")} 件のエラーがあります"
+      ul
+        - @feed.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = image_tag(@feed.image.url) if @feed.image && @feed.image.url
+    br
+    = f.file_field :image
+    = f.hidden_field :image_cache
+
+  .field
+    = f.label :内容
+    = f.text_area :content
+    
+  .actions = f.submit

@@ -1,9 +1,9 @@
-module UsersHelper
-  def user_new_or_edit
+module FeedsHelper
+  def feed_new_or_edit
     if action_name == 'new' || action_name == 'confirm' || action_name == 'create'
-      confirm_users_path
+      confirm_feeds_path
     elsif action_name == 'edit'
-      user_path
+      feed_path
     end
   end
 end

@@ -1,0 +1,17 @@
+h1 投稿詳細
+
+p
+  strong 画像:
+  - if feed.content.present?
+    = image_tag @feed.image.url
+p
+  strong 投稿者:
+  = @feed.user.name
+p
+  strong 内容:
+  = @feed.content
+
+- if @feed.user.id == current_user.id
+  => link_to '編集', edit_feed_path(@feed)
+  '|
+=< link_to '削除', feeds_path
