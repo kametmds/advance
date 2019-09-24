@@ -19,6 +19,8 @@ html
         =<> link_to '投稿一覧', feeds_path
         '|
         =< link_to 'ユーザ一覧', users_path
+        '|
+        =< link_to 'お気に入り一覧', favorites_path(current_user.id)
 
         p.loginstate
           | ログイン中のユーザー：
