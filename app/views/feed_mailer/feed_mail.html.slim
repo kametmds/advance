@@ -1,0 +1,12 @@
+h2 投稿が完了しました！
+h3 投稿内容の確認
+
+h3
+  投稿者：#{@feed.user.name}
+
+h3
+  内容：#{@feed.content}
+
+h3 画像：
+- if @feed.image.present?
+  = image_tag @feed.image.url

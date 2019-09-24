@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
   before_action :forbid_correct_user, only: [:edit, :update, :destroy]
-  
+
   def index
     @feeds = Feed.all
   end
@@ -24,6 +24,7 @@ class FeedsController < ApplicationController
   def create
     @feed = current_user.feeds.build(feed_params)
     if @feed.save
+      FeedMailer.feed_mail(@feed).deliver
       redirect_to @feed, notice: '投稿しました'
     else
       render :new
