@@ -4,10 +4,9 @@ h1 投稿一覧
   - @feeds.order(created_at: :desc).each do |feed|
     .feed_content
       .feeder
-        - if feed.user.image.present?
-          = link_to feed.user
-            = image_tag feed.user.image.url
-          = link_to feed.user.name, feed.user
+        = link_to feed.user
+          = image_tag feed.user.image.url
+        = link_to feed.user.name, feed.user
         .choice
           => link_to fa_icon('folder-open lg',text: 'Detail'), feed
         - unless feed.user_id == current_user.id

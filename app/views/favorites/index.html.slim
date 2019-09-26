@@ -4,11 +4,10 @@ h1 お気に入りリスト
   - @favorites.order(created_at: :desc).each do |favorite|
     .feed_content
       .feeder
-        - if favorite.feed.user.image.present?
-          = link_to favorite.feed.user
-            = image_tag favorite.feed.user.image.url
-          = link_to favorite.feed.user.name, favorite.feed.user
-          .choice
+        = link_to favorite.feed.user
+          = image_tag favorite.feed.user.image.url
+        = link_to favorite.feed.user.name, favorite.feed.user
+        .choice
           => link_to fa_icon('folder-open lg',text: 'Detail'), favorite.feed
       .feed_image
         - if favorite.feed.image.present?

@@ -2,10 +2,9 @@ br
 h1 投稿詳細
 .feed_content
   .feeder
-    - if @feed.user.image.present?
-      = link_to @feed.user
-        = image_tag @feed.user.image.url
-      = link_to @feed.user.name, @feed.user
+    = link_to @feed.user
+      = image_tag @feed.user.image.url
+    = link_to @feed.user.name, @feed.user
   .feed_image
     - if @feed.image.present?
       = image_tag @feed.image.url
