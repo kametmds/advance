@@ -3,8 +3,7 @@ h1 ユーザー一覧
 - @users.order(created_at: :desc).each do |user|
   = link_to user, class: :user_content
     .user_image
-      - if user.image.present?
-        = image_tag user.image.url
+      = image_tag user.image.url
       br
       .user_name
       |名前：
