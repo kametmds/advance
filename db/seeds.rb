@@ -11,7 +11,7 @@
   password = "password"
   User.create!(name: name,
                email: email,
-               image: File.open("./app/assets/images/PNGアイコン.png"),
+               image: File.open("./app/assets/images/PNGicon.png"),
                password: password,
                password_confirmation: password,
                )

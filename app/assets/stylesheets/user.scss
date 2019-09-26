@@ -157,3 +157,25 @@
     background-color: darken(rgb(235, 237, 240), 3%);
   }
 }
+.enterpage {
+  display: flex;
+  .sign_up {
+    margin: 46px 32px;
+    h2 {
+      color :rgb(80, 80, 80);
+    }
+  }
+  .main_img {
+    width: 400px;
+    background: url('analog.png');
+    height: 610px;
+    margin: 20px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 7px;
+  }
+}

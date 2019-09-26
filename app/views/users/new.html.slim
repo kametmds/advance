@@ -1,4 +1,7 @@
-== render 'form', user: @user
-
-.pickup_sentence
-  | アカウントをお持ちですか？#{link_to "ログインする" , new_session_path}
+.enterpage
+  .main_img
+  .sign_up
+    h2 友達の投稿をチェックしよう
+    == render 'form', user: @user
+    .pickup_sentence
+      | アカウントをお持ちですか？#{link_to "ログインする" , new_session_path}
