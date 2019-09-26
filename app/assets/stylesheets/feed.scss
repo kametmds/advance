@@ -1,0 +1,102 @@
+@import "application.scss";
+
+.feed_container {
+  @include container_design;
+  width: 740px;
+  margin-top: 20px;
+
+  .title_tag {
+    margin: 36px 0 18px ;
+    font-size: 32px;
+  }
+  .form-control {
+    margin: 0 0 16px 0;
+    padding: 12px 0;
+  }
+  .image_tag {
+    text-align: center;
+    #user_image {
+      padding-left: 12px;
+    }
+  }
+}
+.pickup_sentence {
+  @include container_design;
+  width: 350px;
+  margin-top: 10px;
+  padding:  20px 0;
+  a {
+    color: rgb(45, 130, 236);
+  }
+}
+
+.feed_content {
+  margin-bottom: 50px;
+  border: 1px solid darken(rgb(235, 237, 240), 5%);
+  border-radius: 4px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  .feeder {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 11px 16px;
+    border-bottom: 1px solid darken(rgb(235, 237, 240), 5%);
+
+    img {
+      width: 32px;
+      height: 32px;
+      @include user_img_design;
+    }
+
+    a {
+      font-size: 18px;
+      margin-right: 18px;
+    }
+    .choice {
+      flex-grow: 2;
+    }
+  }
+
+  .fav_choice {
+    padding: 12px 0;
+    border-top: 1px solid darken(rgb(235, 237, 240), 5%);
+  }
+
+  .content_name {
+    font-size: 24px;
+    padding: 16px 30px;
+    text-align: left;
+    border-bottom: 1px solid darken(rgb(235, 237, 240), 5%);
+    background-color: rgb(245, 246, 247);
+  }
+
+  .feed_sentence {
+    padding: 12px 30px ;
+    text-align: left;
+    border-top: 1px solid darken(rgb(235, 237, 240), 5%);
+    border-bottom: 1px solid darken(rgb(235, 237, 240), 5%);
+  }
+
+  .content_image {
+    margin-bottom: 10px;
+  }
+  .a_class {
+    padding: 6px 14px 6px;
+    margin: 0 32px ;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 2px;
+    transition: .2s all linear 0s;
+    text-decoration: none;
+    color: #000;
+    &:hover {
+      background-color: darken(rgb(235, 237, 240), 3%);
+    }
+    &:visited {
+      color: #000;
+    }
+  }
+}

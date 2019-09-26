@@ -10,25 +10,19 @@ html
   body
     header
       - if logged_in?
-        => link_to "マイページ", user_path(current_user.id)
-        '|
-        =<> link_to "ログアウト", session_path(current_user.id), method: :delete
-        '|
+        =<> link_to 'Telegram', feeds_path, class: :header_title
         =<> link_to '新規投稿', new_feed_path
-        '|
-        =<> link_to '投稿一覧', feeds_path
         '|
         =< link_to 'ユーザ一覧', users_path
         '|
         =< link_to 'お気に入り一覧', favorites_path(current_user.id)
-
-        p.loginstate
-          | ログイン中のユーザー：
-          = current_user.name
-      - else
-        => link_to "ユーザ登録", new_user_path
         '|
-        =< link_to "ログイン" , new_session_path
+        =<> link_to "ログアウト", session_path(current_user.id), method: :delete
+
+        .loginstate
+          = link_to user_path(current_user.id)
+            = image_tag current_user.image.url
+          = link_to current_user.name, user_path(current_user.id)
 
     - flash.each do |key, value|
       = content_tag(:div, value, class: "#{key}")

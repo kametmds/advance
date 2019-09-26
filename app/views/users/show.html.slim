@@ -1,19 +1,19 @@
 h1 ユーザー情報
+.user_content
+  - if @user.image.present?
+    = image_tag @user.image.url, class: 'big_user_image'
+  p
+    |ユーザー名:
+    = @user.name
+  p
+    |Email:
+    = @user.email
 
-p
-  strong ユーザー名:
-  = @user.name
-p
-  strong Email:
-  = @user.email
-p
-  strong
-    - if @user.image.present?
-      = image_tag @user.image.url
-
-=> link_to '編集', edit_user_path(@user)
-'|
-=>< link_to 'Top', users_path
-'|
-=< link_to '投稿一覧', feeds_path
+  - if @user.id == current_user.id
+    => link_to '編集', edit_user_path(@user), class: :a_class
+    br
+    =< link_to '削除', @user, data: { confirm: '本当に削除しますか?' }, method: :delete, class: :a_class
+    br
+  =>< link_to '投稿一覧', feeds_path, class: :a_class
+  br
 br

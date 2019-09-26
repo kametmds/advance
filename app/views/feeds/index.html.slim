@@ -5,21 +5,21 @@ h1 投稿一覧
     .feed_content
       .feeder
         - if feed.user.image.present?
-          = image_tag feed.user.image.url
-          =< feed.user.name
-      .feed_sentence
-      |内容：
-      = feed.content
+          = link_to feed.user
+            = image_tag feed.user.image.url
+          = link_to feed.user.name, feed
+          .choice
+          => link_to '詳細', feed
       .feed_image
         - if feed.image.present?
           = image_tag feed.image.url
-      .choice
-        => link_to '詳細', feed
-        - if feed.user.id == current_user.id
-          '|
-          =>< link_to '編集', edit_feed_path(feed)
-          '|
-          =< link_to '削除', feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete
+      .feed_sentence
+        = feed.content
+//      .choice
+//        => link_to '詳細', feed
+//        - if feed.user.id == current_user.id
+//          =>< link_to '編集', edit_feed_path(feed)
+//          =< link_to '削除', feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete
 
 br
 

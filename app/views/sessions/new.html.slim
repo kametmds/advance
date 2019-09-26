@@ -1,11 +1,14 @@
-h1
-  |ログイン画面
-= form_with(scope: :session, url: sessions_path, local: true) do |f|
-  = f.label :email
-  = f.email_field :email
+.user_container
+  .title_tag Telegram
+  = form_with(scope: :session, url: sessions_path, local: true) do |f|
+    p = f.label :email
+    p = f.email_field :email, placeholder: "  メールアドレス"
 
-  = f.label :password
-  = f.password_field :password
+    p = f.label :password
+    p = f.password_field :password, placeholder: "  パスワード"
+
+    p = f.submit "ログイン"
 
   br
-  = f.submit "ログイン"
+.pickup_sentence
+  | アカウントをお持ちでないですか？#{link_to "登録する" , new_user_path}

@@ -5,24 +5,22 @@
       - @user.errors.full_messages.each do |message|
         li = message
 
-= form_with(model: user, local: true, url: user_new_or_edit) do |f|
+.user_container
+  .title_tag Telegram
+  = form_with(model: user, local: true, url: user_new_or_edit, class: 'form-control') do |f|
 
-  = f.label :name
-  = f.text_field :name
+    p = f.text_field :name, placeholder: "  ユーザーネーム"
 
-  = f.label :email
-  = f.email_field :email
+    p = f.email_field :email, placeholder: "  メールアドレス"
 
-  = f.label :image
-  = image_tag(@user.image.url) if @user.image && @user.image.url
-  = f.file_field :image
-  = f.hidden_field :image_cache
+    p = f.password_field :password, placeholder: "  パスワード"
 
+    p = f.password_field :password_confirmation, placeholder: "  確認用パスワード"
 
-  = f.label :password
-  = f.password_field :password
+    .image_tag
+      = image_tag(@user.image.url) if @user.image && @user.image.url
+      = f.file_field :image
+      = f.hidden_field :image_cache
 
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+    p = f.submit "登録する"
 
-  = f.submit "アカウント作成"
