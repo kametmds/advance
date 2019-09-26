@@ -23,6 +23,7 @@ gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-rails'
+gem 'faker'
 
 
 group :development, :test do
