@@ -1,7 +1,6 @@
 h1 ユーザー情報
 .user_content
-  - if @user.image.present?
-    = image_tag @user.image.url, class: 'big_user_image'
+  = image_tag @user.image.url, class: 'big_user_image'
   p
     |ユーザー名:
     = @user.name
