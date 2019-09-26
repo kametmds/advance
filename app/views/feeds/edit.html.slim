@@ -1,9 +1,8 @@
-h1 投稿編集
-
-== render 'form', feed: @feed
-
-=> link_to '詳細', @feed
-'|
-=< link_to '一覧', feeds_path
-
 br
+h1 投稿編集
+.feed_container
+  == render 'form', feed: @feed
+  => link_to '詳細', @feed, class: :a_class
+  br
+  =< link_to '一覧', feeds_path, class: :a_class
+  br

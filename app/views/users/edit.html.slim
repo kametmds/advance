@@ -1,7 +1,8 @@
 h1 ユーザー情報編集
 
 == render 'form', user: @user
-
-=> link_to '詳細', @user
-'|
-=< link_to '戻る', users_path
+br
+=> link_to '詳細', @user, class: :a_class
+br
+=< link_to '戻る', users_path, class: :a_class
+br

@@ -1,6 +1,7 @@
-h1 新規投稿
-
-== render 'form', feed: @feed
-
-= link_to '一覧', feeds_path
 br
+h1 新規投稿
+.feed_container
+  == render 'form', feed: @feed
+  br
+  = link_to '投稿一覧', feeds_path, class: :a_class
+  br

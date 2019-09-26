@@ -7,20 +7,21 @@ h1 投稿一覧
         - if feed.user.image.present?
           = link_to feed.user
             = image_tag feed.user.image.url
-          = link_to feed.user.name, feed
-          .choice
-          => link_to '詳細', feed
+          = link_to feed.user.name, feed.user
+        .choice
+          => link_to fa_icon('folder-open lg',text: 'Detail'), feed
+        - unless feed.user_id == current_user.id
+          .fav_choice
+            - if @favorites.find_by(feed_id: feed.id).present?
+              = link_to fa_icon('heart lg',text: feed.favorites.size), favorite_path(id: @favorites.find_by(feed_id: feed.id)), method: :delete, class: 'favcon'
+            - else
+              = link_to fa_icon('heart lg',text: feed.favorites.size), favorites_path(feed_id: feed.id), method: :post
+
       .feed_image
         - if feed.image.present?
           = image_tag feed.image.url
       .feed_sentence
         = feed.content
-//      .choice
-//        => link_to '詳細', feed
-//        - if feed.user.id == current_user.id
-//          =>< link_to '編集', edit_feed_path(feed)
-//          =< link_to '削除', feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete
 
+  h2 = link_to '新規投稿', new_feed_path
 br
-
-= link_to '新規投稿', new_feed_path

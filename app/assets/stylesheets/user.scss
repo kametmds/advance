@@ -42,6 +42,7 @@
       }
     }
   }
+
   .image_tag {
     text-align: center;
     #user_image {
@@ -144,4 +145,15 @@
       }
     }
 
+}
+.a_class {
+  margin-left: 8px;
+  padding: 10px 14px 10px;
+  text-align: center;
+  border-radius: 2px;
+  transition: .2s all linear 0s;
+  &:hover {
+    color: black;
+    background-color: darken(rgb(235, 237, 240), 3%);
+  }
 }

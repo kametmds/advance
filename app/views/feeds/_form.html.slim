@@ -5,15 +5,15 @@
       ul
         - @feed.errors.full_messages.each do |message|
           li = message
-
   .field
+    br
     = image_tag(@feed.image.url) if @feed.image && @feed.image.url
     br
     = f.file_field :image
     = f.hidden_field :image_cache
-
+  br
   .field
-    = f.label :内容
-    = f.text_area :content
-
+    = f.text_area :content, placeholder: "  投稿文を入力してください"
+  br
   .actions = f.submit
+  br

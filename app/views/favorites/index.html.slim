@@ -5,18 +5,13 @@ h1 お気に入りリスト
     .feed_content
       .feeder
         - if favorite.feed.user.image.present?
-          = image_tag favorite.feed.user.image.url
-          =< favorite.feed.user.name
-      .feed_sentence
-      |内容：
-      = favorite.feed.content
+          = link_to favorite.feed.user
+            = image_tag favorite.feed.user.image.url
+          = link_to favorite.feed.user.name, favorite.feed.user
+          .choice
+          => link_to fa_icon('folder-open lg',text: 'Detail'), favorite.feed
       .feed_image
         - if favorite.feed.image.present?
           = image_tag favorite.feed.image.url
-      .choice
-        => link_to '詳細',favorite.feed
-        - if favorite.feed.user.id == current_user.id
-          '|
-          =>< link_to '編集', edit_feed_path(favorite)
-          '|
-          =< link_to '削除', favorite, data: { confirm: '本当に削除してもいいですか?' }, method: :delete
+      .feed_sentence
+        = favorite.feed.content

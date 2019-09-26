@@ -11,13 +11,13 @@ html
     header
       - if logged_in?
         =<> link_to 'Telegram', feeds_path, class: :header_title
-        =<> link_to '新規投稿', new_feed_path
+        =<> link_to fa_icon('plus-square lg',text: 'New Post'), new_feed_path
         '|
-        =< link_to 'ユーザ一覧', users_path
+        =< link_to fa_icon('users lg',text: 'Users'), users_path
         '|
-        =< link_to 'お気に入り一覧', favorites_path(current_user.id)
+        =< link_to fa_icon('heart lg',text: 'Favorites'), favorites_path(current_user.id)
         '|
-        =<> link_to "ログアウト", session_path(current_user.id), method: :delete
+        =<> link_to fa_icon('sign-out lg',text: 'Logout'), session_path(current_user.id), method: :delete
 
         .loginstate
           = link_to user_path(current_user.id)

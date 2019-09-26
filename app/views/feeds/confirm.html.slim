@@ -1,12 +1,16 @@
+br
 h1 確認画面
-= form_with(model: @feed, url: feeds_path, local: true) do |f|
-  = image_tag(@feed.image.url) if @feed.image && @feed.image.url
-  = f.hidden_field :image_cache
-  = f.hidden_field :content
+.feed_container
+  = form_with(model: @feed, url: feeds_path, local: true) do |f|
+    = image_tag(@feed.image.url) if @feed.image && @feed.image.url
+    = f.hidden_field :image_cache
+    = f.hidden_field :content
 
-  p 内容: #{@feed.content}
-  = f.submit "投稿"
+    p 内容: #{@feed.content}
+    = f.submit "投稿"
 
-= form_with(model: @feed, url: new_feed_path, local: true, method: "get") do |f|
-  = f.hidden_field :image_cache
-  = f.submit "戻る", name: "back"
+  = form_with(model: @feed, url: new_feed_path, local: true, method: "get") do |f|
+    = f.hidden_field :image_cache
+    = f.submit "戻る", name: "back"
+  br
+br

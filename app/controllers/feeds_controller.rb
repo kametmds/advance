@@ -5,6 +5,7 @@ class FeedsController < ApplicationController
 
   def index
     @feeds = Feed.all
+    @favorites = current_user.favorites
   end
 
   def show
@@ -58,6 +59,10 @@ class FeedsController < ApplicationController
 
   def feed_params
     params.require(:feed).permit(:image,:image_cache, :content)
+  end
+
+  def take_params
+    {:page => params[:page]}
   end
 
 end
