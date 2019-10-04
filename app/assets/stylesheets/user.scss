@@ -112,7 +112,7 @@
     flex-direction: column;
     align-items: center;
     height: 122px;
-    width: 140px;
+    width: 160px;
     padding : 15px 22px;
   }
   img {
@@ -126,6 +126,12 @@
     width: 200px;
     height: 200px;
     margin: 14px;
+  }
+  .small_user_image {
+    @include user_img_design;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
   }
 
   .choice {
@@ -177,5 +183,38 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 7px;
+  }
+}
+
+.followers_list {
+  width: 100%;
+  .follower_list {
+    height: 42px;
+    border-top: 1px solid darken(rgb(235, 237, 240), 8%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0 0px;
+
+    a {
+      margin: 0;
+    }
+  }
+}
+
+.followings_list {
+  width: 100%;
+
+  .following_list {
+    height: 42px;
+    border-top: 1px solid darken(rgb(235, 237, 240), 8%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0 0px;
+
+    a {
+      margin: 0;
+    }
   }
 }

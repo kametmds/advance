@@ -116,4 +116,20 @@
   .favcon {
     color: red;
   }
+
+  .comment_area {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 54px;
+    border-bottom: 1px solid darken(rgb(235, 237, 240), 5%);
+    .comment_content {
+      flex-grow: 3;
+    }
+    .choice {
+      margin-right: 34px;
+    }
+  }
+
 }

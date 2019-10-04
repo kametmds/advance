@@ -15,4 +15,22 @@ h1 ユーザー情報
     br
   =>< link_to '投稿一覧', feeds_path, class: :a_class
   br
+
+  .followers_list
+    h3 フォロワー
+    - @user.followers.order(created_at: :desc).each do |user|
+      .follower_list
+        = link_to user_path(user.id)
+          = image_tag user.image.url, class: 'small_user_image'
+        = link_to user_path(user.id)
+          = user.name
+  br
+  .followings_list
+    h3 フォロー中
+    - @user.following.order(created_at: :desc).each do |user|
+      .following_list
+        = link_to user_path(user.id)
+          = image_tag user.image.url, class: 'small_user_image'
+        = link_to user_path(user.id)
+          = user.name
 br

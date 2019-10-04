@@ -10,6 +10,8 @@ class FeedsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+    @comments = @feed.comments
+    @comment = @feed.comments.build
   end
 
   def new

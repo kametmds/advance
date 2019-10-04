@@ -1,0 +1,9 @@
+- comments.each do |comment|
+  .comment_area
+    - if comment.id.present?
+      /.comment_user_image = image_tag comment.user.image.url
+      .comment_content = comment.content
+      - if comment.feed.user == current_user
+        /idをcomment.post_idとcomment.idの2つ渡す必要があるのは、削除したいコメントを指定するには「post/12/comment/31」のようにpost_idとcomment_idを指定する必要があるためです。
+        /「remote: true」を記載していることでjsファイルを探しにいってくれる。
+        .choice = link_to fa_icon('trash lg'), feed_comment_path(comment.feed_id, comment.id), method: :delete, remote: true

@@ -1,20 +1,25 @@
 h1 ユーザー一覧
 
 - @users.order(created_at: :desc).each do |user|
-  = link_to user, class: :user_content
+  .user_content
     .user_image
-      = image_tag user.image.url
+      = link_to user
+        = image_tag user.image.url
       br
       .user_name
-      |名前：
-      = user.name
+        = link_to user
+          |名前：
+          = user.name
       .user_email
-      |Email：
-      = user.email
+         = link_to user
+          |Email：
+          = user.email
+    = render 'follow_form', user: user
+    br
     /.choice
     /  - if user.id == current_user.id
     /    =>< link_to '編集', edit_user_path(user), class: :a_class
     /    =< link_to '削除', user, data: { confirm: '本当に削除しますか?' }, method: :delete, class: :a_class
-br
+  br
 => link_to '投稿一覧', feeds_path
-br/
+br

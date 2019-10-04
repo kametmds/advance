@@ -22,6 +22,12 @@ h1 投稿詳細
     =>< link_to '編集', edit_feed_path(@feed), class: 'a_class'
     br
     =< link_to '削除', @feed, data: { confirm: '本当に削除してもいいですか?' }, method: :delete, class: 'a_class'
-  br
-  => link_to '投稿一覧', feeds_path, class: 'a_class'
+    br
+    => link_to '投稿一覧', feeds_path, class: 'a_class'
+    br
+
+  h3 コメント
+  = render partial: 'comments/form', locals: { comment: @comment, feed: @feed }
+  #comments_area
+    = render partial: 'comments/index', locals: { comments: @comments, feed: @feed }
   br
