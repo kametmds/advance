@@ -10,7 +10,7 @@ html
   body
     header
       - if logged_in?
-        =<> link_to 'Telegram', feeds_path, class: :header_title
+        =<> link_to fa_icon('instagram',text: 'Telegram'), feeds_path, class: :header_title
         =<> link_to fa_icon('plus-square lg',text: 'New Post'), new_feed_path
         '|
         =< link_to fa_icon('users lg',text: 'Users'), users_path

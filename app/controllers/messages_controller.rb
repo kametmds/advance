@@ -6,14 +6,14 @@ class MessagesController < ApplicationController
   def index
     @messages = @conversation.messages
 
-    if @messages.length > 10
-      @over_ten = true
-      #直近で登録されたメッセージの10件のidを取得し、そのidのmessageの配列をwhereメソッドで取得する.pluckはテーブルからカラムを取得する。
-      #@messages[-10..-1]のような形でmessageの配列を取り出してしまうと、RailsのDB操作の機能を持ったActiveRecord_Relationというクラスが、ただのArrayクラスへと変換されてしまう。
-      #そのため、whereなどのメソッドが使用できなくなってしまいます。
-      #なので直近で登録されたメッセージの10件のidを取得し、そのidのmessageの配列をwhereメソッドで取得するという、少々回りくどい操作をここでは行なっています。
-      @messages = Message.where(id: @messages[-10..-1].pluck(:id))
-    end
+    # if @messages.length > 10
+    #   @over_ten = true
+    #   #直近で登録されたメッセージの10件のidを取得し、そのidのmessageの配列をwhereメソッドで取得する.pluckはテーブルからカラムを取得する。
+    #   #@messages[-10..-1]のような形でmessageの配列を取り出してしまうと、RailsのDB操作の機能を持ったActiveRecord_Relationというクラスが、ただのArrayクラスへと変換されてしまう。
+    #   #そのため、whereなどのメソッドが使用できなくなってしまいます。
+    #   #なので直近で登録されたメッセージの10件のidを取得し、そのidのmessageの配列をwhereメソッドで取得するという、少々回りくどい操作をここでは行なっています。
+    #   @messages = Message.where(id: @messages[-10..-1].pluck(:id))
+    # end
 
     #params[:m]というのは、link_toにオプションで追記するクエリパラメータ,そこに値があればtrue
     if params[:m]
@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     end
 
     #表示するメッセージを作成日時順（投稿された順）に並び替える
-    @messages = @messages.order(:created_at)
+    # @messages = @messages.order(:created_at)
 
     #新規投稿のメッセージ用の変数を作成する
     #buildはnewとほぼ同じ内容の処理をしますが、慣習的に「すでにアソシエーションしてあるインスタンスの生成」ということを表します。

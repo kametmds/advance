@@ -1,24 +1,3 @@
-br
-/メッセージが10件以上あれば以前のメッセージへのリンクを表示する
-- if @over_ten
-  = link_to '以前のメッセージ', '?m=all'
-br
-/メッセージを一件ずつ抽出してメッセージの内容があればユーザ名や内容を表示
-.ui.segment
-  - @messages.each do |message|
-    - if message.body.present?
-      .content
-        .message_user_name
-          = image_tag message.user.image.url, class: 'small_user_image'
-          = message.user.name
-        .message_content
-          = message.body
-        .message_info
-          = message.message_time
-          - if message.user == current_user
-            /⬇︎は三項演算子という記法で、?の前の記述がtrueであれば:の左側、falseであれば:の右側を実行します。
-            |　
-            = message.read ? '既読' : '未読'
 
 /会話にひもづくメッセージの入力フォームを投稿者を自分に指定して生成する
 = form_with(model: [@conversation, @message]) do |f|
@@ -26,6 +5,41 @@ br
   .field
     = f.text_area :body, class: "form-control"
   = f.text_field :user_id, value: current_user.id, type: "hidden"
-  br
   div
     = f.submit "メッセージを送る"
+br
+/メッセージが10件以上あれば以前のメッセージへのリンクを表示する
+/ - if @over_ten
+/   = link_to fa_icon('arrow-circle-down lg',text: '以前のメッセージを表示'), '?m=all'
+/ br
+/メッセージを一件ずつ抽出してメッセージの内容があればユーザ名や内容を表示
+.ui.segment
+  - @messages.order(created_at: :desc).each do |message|
+    - if message.body.present?
+      - if message.user.id == current_user.id
+        .my_content
+          /.message_user_name
+            = image_tag message.user.image.url, class: 'small_user_image'
+            = message.user.name
+          .message_content
+            = message.body
+          .message_info
+            - if message.user == current_user
+              /⬇︎は三項演算子という記法で、?の前の記述がtrueであれば:の左側、falseであれば:の右側を実行します。
+              = message.read ? '既読' : '未読'
+            |　
+            = message.message_time
+
+      - else
+        .content
+          .message_user_name
+            = image_tag message.user.image.url, class: 'small_user_image'
+            = message.user.name
+          .message_content
+            = message.body
+          .message_info
+            = message.message_time
+            - if message.user == current_user
+              /⬇︎は三項演算子という記法で、?の前の記述がtrueであれば:の左側、falseであれば:の右側を実行します。
+              |　
+              = message.read ? '既読' : '未読'
