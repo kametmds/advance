@@ -24,6 +24,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-rails'
 gem 'faker'
+gem 'fog-aws'
+
 
 
 group :development, :test do
