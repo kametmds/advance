@@ -27,6 +27,8 @@ gem 'faker'
 gem 'fog-aws'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 
 group :development, :test do
